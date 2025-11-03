@@ -1,8 +1,15 @@
 {
   "$schema": "https://railway.app/railway.schema.json",
+  "version": "2.0",
+  "project": {
+    "name": "FirstLevelApp-Backend",
+    "description": "Node.js Express Backend for FirstLevelApp"
+  },
   "template": {
-    "name": "Node.js Express Web Service",
-    "description": "Backend API for FirstLevelApp"
+    "type": "web",
+    "runtime": "nodejs",
+    "source": ".",
+    "framework": "express"
   },
   "build": {
     "builder": "nixpacks",
