@@ -1,0 +1,37 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "template": {
+    "name": "Node.js Express Web Service",
+    "description": "Backend API for FirstLevelApp"
+  },
+  "build": {
+    "builder": "nixpacks",
+    "buildCommand": "npm install",
+    "startCommand": "npm start"
+  },
+  "deploy": {
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 3
+  },
+  "env": {
+    "PORT": {
+      "value": "3000"
+    },
+    "NODE_ENV": {
+      "value": "production"
+    }
+  },
+  "services": {
+    "web": {
+      "type": "web",
+      "source": ".",
+      "buildCommand": "npm install",
+      "startCommand": "npm start",
+      "port": 3000
+    },
+    "postgres": {
+      "type": "postgres",
+      "plan": "hobby-free"
+    }
+  }
+}
