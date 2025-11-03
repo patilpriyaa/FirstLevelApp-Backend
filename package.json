@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "deploy": "railway deploy"
   },
-  "keywords": ["express", "sequelize", "postgresql", "backend"],
+  "keywords": ["express", "railway", "backend"],
   "author": "Your Name",
   "license": "ISC",
   "type": "commonjs",
