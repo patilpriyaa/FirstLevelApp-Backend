@@ -3,30 +3,15 @@
   "version": "2.0",
   "project": {
     "name": "FirstLevelApp-Backend",
-    "description": "Node.js Express Backend for FirstLevelApp"
+    "description": "Node.js Express Backend with PostgreSQL"
   },
   "template": {
     "type": "web",
     "runtime": "nodejs",
+    "framework": "express",
     "source": ".",
-    "framework": "express"
-  },
-  "build": {
-    "builder": "nixpacks",
     "buildCommand": "npm install",
     "startCommand": "npm start"
-  },
-  "deploy": {
-    "restartPolicyType": "ON_FAILURE",
-    "restartPolicyMaxRetries": 3
-  },
-  "env": {
-    "PORT": {
-      "value": "3000"
-    },
-    "NODE_ENV": {
-      "value": "production"
-    }
   },
   "services": {
     "web": {
@@ -40,5 +25,18 @@
       "type": "postgres",
       "plan": "hobby-free"
     }
+  },
+  "env": {
+    "PORT": "3000",
+    "NODE_ENV": "production",
+    "PGDATA": "/var/lib/postgresql/data/pgdata",
+    "PGHOST": "${{RAILWAY_PRIVATE_DOMAIN}}",
+    "PGPORT": "5432",
+    "PGUSER": "${{POSTGRES_USER}}",
+    "PGDATABASE": "railway",
+    "POSTGRES_DB": "railway",
+    "POSTGRES_USER": "postgres",
+    "DATABASE_URL": "postgresql://${{PGUSER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_PRIVATE_DOMAIN}}:5432/${{PGDATABASE}}",
+    "DATABASE_PUBLIC_URL": "postgresql://${{PGUSER}}:${{POSTGRES_PASSWORD}}@${{RAILWAY_TCP_PROXY_DOMAIN}}:${{RAILWAY_TCP_PROXY_PORT}}/${{PGDATABASE}}"
   }
 }
